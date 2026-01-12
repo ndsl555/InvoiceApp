@@ -8,5 +8,5 @@ import org.koin.dsl.module
 val viewModule: Module =
     module {
         includes(ioDispatcherModule, domainModule, moshiModule)
-        viewModel { LotteryCheckViewModel(get()) }
+        viewModel { LotteryCheckViewModel(get(), get(), get()) }
     }

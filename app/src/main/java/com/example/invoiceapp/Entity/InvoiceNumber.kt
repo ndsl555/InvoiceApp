@@ -1,6 +1,12 @@
 package com.example.invoiceapp.Entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "InvoiceTable")
 data class InvoiceNumber(
+    @PrimaryKey
+    var id: Int = 1,
     val specialistPrize: String, // 特獎
     val specialPrize: String, // 特別獎
     val firstPrize: List<String>, // 頭獎（3 組）

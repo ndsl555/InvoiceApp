@@ -24,7 +24,7 @@ class LotteryCheckFragment : Fragment() {
 
     private val viewModel: LotteryCheckViewModel by viewModel()
 
-    private var lotteryNumber = InvoiceNumber("", "", emptyList())
+    private var lotteryNumber = InvoiceNumber(1, "", "", emptyList())
     private var allPrizes = emptyList<Prize>()
 
     enum class WinningState {
@@ -33,8 +33,6 @@ class LotteryCheckFragment : Fragment() {
         MAYBE,
         NONE,
     }
-
-    private var hasHandledInvoice = false
 
     private val prizeViewMap by lazy {
         listOf(
@@ -86,8 +84,7 @@ class LotteryCheckFragment : Fragment() {
 
             launch {
                 viewModel.lotteryNumber.collect { invoiceNumber ->
-                    if (!hasHandledInvoice && invoiceNumber.isReady()) {
-                        hasHandledInvoice = true
+                    if (invoiceNumber.isReady()) {
                         onInvoiceNumberReady(invoiceNumber)
                     }
                 }
@@ -126,8 +123,7 @@ class LotteryCheckFragment : Fragment() {
 
     private fun setupSwipeToRefresh() {
         binding.swipeRefreshLayout.setOnRefreshListener {
-            hasHandledInvoice = false
-            viewModel.getLotteryNumber()
+            viewModel.getLotteryNumberFromDB()
         }
     }
 

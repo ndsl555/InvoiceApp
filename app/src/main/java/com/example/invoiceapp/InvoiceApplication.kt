@@ -2,6 +2,7 @@ package com.example.invoiceapp
 
 import android.app.Application
 import com.example.invoiceapp.di.dataModule
+import com.example.invoiceapp.di.databaseModule
 import com.example.invoiceapp.di.ioDispatcherModule
 import com.example.invoiceapp.di.moshiModule
 import com.example.invoiceapp.di.networkModule
@@ -15,6 +16,7 @@ class InvoiceApplication : Application() {
         startKoin {
             androidContext(this@InvoiceApplication)
             modules(
+                databaseModule,
                 dataModule,
                 viewModule,
                 ioDispatcherModule,
