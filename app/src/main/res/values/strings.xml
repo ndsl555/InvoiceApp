@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lottery-Check</string>
+    <string name="lottery_check">發票兌獎</string>
+    <string name="network_type_wifi">WiFi</string>
+    <string name="network_type_mobile">Mobile</string>
+    <string name="network_type_no_network">請檢察網路連線狀態\n若因為網路問題導致空品清單無畫面\n請連上網後,下拉更新</string>
+    <string name="yes">知道了</string>
+    <string name="hint_enter_numbers">請輸入發票後三碼</string>
+    <string name="hint_check_numbers">請核對獎號</string>
+    <string name="congrats">恭喜中獎🎉 趕緊核對!</string>
+    <string name="hint_sorry_try_again">沒中 , 再接再厲 😅</string>
+    <string name="topic">後三碼對獎</string>
+    <string name="first_prize_bonus">必須8碼全中\n才可得獎金 %1$s 萬</string>
+
+</resources>

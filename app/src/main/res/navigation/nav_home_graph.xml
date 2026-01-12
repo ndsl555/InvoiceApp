@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home_graph"
+    app:startDestination="@id/navigationLotteryCheckFragment">
+
+    <fragment
+        android:id="@+id/navigationLotteryCheckFragment"
+        android:name="com.example.invoiceapp.LotteryCheckFragment"
+        android:label="@string/lottery_check"
+        tools:layout="@layout/fragment_lotterycheck"
+        />
+
+
+
+
+
+    <action
+        android:id="@+id/action_global_to_navigationLotteryCheckFragment"
+        app:destination="@id/navigationLotteryCheckFragment"
+        app:enterAnim="@anim/nav_push_from_right_in"
+        app:exitAnim="@anim/nav_push_from_left_out"
+        app:popEnterAnim="@anim/nav_push_from_left_in"
+        app:popExitAnim="@anim/nav_push_from_right_out">
+
+    </action>
+
+
+
+
+</navigation>

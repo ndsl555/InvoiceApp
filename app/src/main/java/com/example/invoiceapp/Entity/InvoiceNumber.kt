@@ -1,0 +1,17 @@
+package com.example.invoiceapp.Entity
+
+data class InvoiceNumber(
+    val specialistPrize: String, // 特獎
+    val specialPrize: String, // 特別獎
+    val firstPrize: List<String>, // 頭獎（3 組）
+)
+
+/**
+ * 判斷發票號碼是否已完整取得
+ */
+fun InvoiceNumber.isReady(): Boolean {
+    return specialistPrize.isNotBlank() &&
+        specialPrize.isNotBlank() &&
+        firstPrize.isNotEmpty() &&
+        firstPrize.all { it.isNotBlank() }
+}
