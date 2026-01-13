@@ -6,7 +6,7 @@ import com.example.invoiceapp.Utils.Result
 import com.example.invoiceapp.Utils.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
-class LoadBarCodeUseCase(val invoiceRepository: IInvoiceRepository, dispatcher: CoroutineDispatcher) :
+class LoadInvoiceUseCase(val invoiceRepository: IInvoiceRepository, dispatcher: CoroutineDispatcher) :
     UseCase<Unit, InvoiceNumber>(dispatcher) {
     override suspend fun execute(parameters: Unit): Result<InvoiceNumber> {
         return invoiceRepository.getInvoice()

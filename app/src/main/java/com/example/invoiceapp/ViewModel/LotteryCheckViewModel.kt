@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.invoiceapp.Entity.InvoiceNumber
 import com.example.invoiceapp.Entity.isReady
-import com.example.invoiceapp.UseCase.LoadBarCodeUseCase
+import com.example.invoiceapp.UseCase.LoadInvoiceUseCase
 import com.example.invoiceapp.UseCase.LotteryCheckUseCase
 import com.example.invoiceapp.UseCase.SaveInvoiceUseCase
 import com.example.invoiceapp.Utils.Result
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 class LotteryCheckViewModel(
     private val useCase: LotteryCheckUseCase,
     private val saveInvoiceUseCase: SaveInvoiceUseCase,
-    private val loadBarCodeUseCase: LoadBarCodeUseCase,
+    private val loadInvoiceUseCase: LoadInvoiceUseCase,
 ) : ViewModel() {
     private val _lotteryNumber = MutableStateFlow(InvoiceNumber(1, "", "", emptyList()))
     val lotteryNumber: StateFlow<InvoiceNumber> = _lotteryNumber.asStateFlow()
@@ -36,7 +36,7 @@ class LotteryCheckViewModel(
             _isLoading.value = true
 
             try {
-                val localResult = loadBarCodeUseCase.invoke()
+                val localResult = loadInvoiceUseCase.invoke()
 
                 if (localResult is Result.Success) {
                     val localData = localResult.data
